@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Italian Recipe Gallery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f6f6;
+      padding: 30px 20px;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.2rem;
+      color: #2c3e50;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 15px;
+    }
+
+    .recipe {
+      margin-top: 15px;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .recipe h3 {
+      margin-bottom: 8px;
+      color: #34495e;
+    }
+
+    .recipe ul {
+      margin-bottom: 10px;
+      padding-left: 20px;
+    }
+
+    .recipe p {
+      line-height: 1.4;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Famous Italian Dishes</h1>
+
+  <div class="gallery">
+    <div class="card" onclick="toggleRecipe(0)">
+      <img src="https://images.unsplash.com/photo-1633337474564-1d9478ca4e2e?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3BhZ2hldHRpJTIwY2FyYm9uYXJhfGVufDB8fDB8fHww" alt="Spaghetti Carbonara">
+      <div class="card-content">
+        <h2>Spaghetti Carbonara</h2>
+        <div class="recipe" id="recipe0">
+          <h3>Ingredients:</h3>
+          <ul>
+            <li>200g spaghetti</li>
+            <li>100g pancetta</li>
+            <li>2 eggs + 1 yolk</li>
+            <li>50g pecorino/Parmesan cheese</li>
+            <li>Black pepper</li>
+          </ul>
+          <p>Cook pasta, sauté pancetta. Mix eggs and cheese, combine with hot pasta and pancetta. Finish with black pepper.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="toggleRecipe(1)">
+      <img src="https://media.istockphoto.com/id/535851351/photo/lasagna-on-a-square-white-plate.jpg?s=612x612&w=0&k=20&c=Rg1K7z4NlWhy2qexaym_GJ0khcJFSJUJgToTN2cRspM=" alt="Lasagna">
+      <div class="card-content">
+        <h2>Classic Lasagna</h2>
+        <div class="recipe" id="recipe1">
+          <h3>Ingredients:</h3>
+          <ul>
+            <li>Lasagna sheets</li>
+            <li>500g minced beef</li>
+            <li>Tomato sauce</li>
+            <li>Béchamel sauce</li>
+            <li>Mozzarella & Parmesan</li>
+          </ul>
+          <p>Layer lasagna sheets with meat sauce, béchamel, and cheese. Bake at 180°C for 40 mins until golden.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="toggleRecipe(2)">
+      <img src="https://media.istockphoto.com/id/1369183332/photo/risotto-with-brown-champignon-mushrooms.jpg?s=612x612&w=0&k=20&c=hXubXk9pxjZbSR436lNbNWMrbGd37Y3v3DaopBoU84M=" alt="Risotto">
+      <div class="card-content">
+        <h2>Mushroom Risotto</h2>
+        <div class="recipe" id="recipe2">
+          <h3>Ingredients:</h3>
+          <ul>
+            <li>200g Arborio rice</li>
+            <li>1 onion</li>
+            <li>200g mushrooms</li>
+            <li>1L vegetable stock</li>
+            <li>Butter & Parmesan</li>
+          </ul>
+          <p>Sauté onion & mushrooms, add rice, cook slowly with stock. Finish with butter and Parmesan for creaminess.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="toggleRecipe(3)">
+      <img src="https://t4.ftcdn.net/jpg/00/39/01/57/360_F_39015733_RlkPhCskQTJuLc8idgn7mpBajaViWqtn.jpg" alt="Tiramisu">
+      <div class="card-content">
+        <h2>Tiramisu</h2>
+        <div class="recipe" id="recipe3">
+          <h3>Ingredients:</h3>
+          <ul>
+            <li>200g ladyfingers</li>
+            <li>250g mascarpone cheese</li>
+            <li>2 eggs</li>
+            <li>100ml coffee</li>
+            <li>Cocoa powder</li>
+          </ul>
+          <p>Layer coffee-dipped ladyfingers with mascarpone cream. Chill for 4 hrs and dust with cocoa before serving.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleRecipe(index) {
+      const recipe = document.getElementById(recipe$,{index});
+      document.querySelectorAll('.recipe').forEach(r => r.style.display = 'none');
+      recipe.style.display = isVisible ? 'none' : 'block';
+    }
+  </script>
+
+</body>
+</html>

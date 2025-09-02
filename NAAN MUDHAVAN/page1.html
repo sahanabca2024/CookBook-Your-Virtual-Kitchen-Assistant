@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Indian Recipe Gallery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f6f6;
+      padding: 30px 20px;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.2rem;
+      color: #2c3e50;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    }
+
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 15px;
+    }
+
+    .recipe {
+      margin-top: 15px;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .recipe h3 {
+      margin-bottom: 8px;
+      color: #34495e;
+    }
+
+    .recipe ul {
+      margin-bottom: 10px;
+      padding-left: 20px;
+    }
+
+    .recipe p {
+      line-height: 1.4;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Famous Indian Dishes</h1>
+
+  <div class="gallery">
+    <div class="card" onclick="toggleRecipe(0)">
+      <img src="https://www.shutterstock.com/image-photo/traditional-chicken-biryani-served-brass-600nw-2622739739.jpg" alt="Biryani">
+      <div class="card-content">
+        <h2>Chicken Biryani</h2>
+        <div class="recipe" id="recipe0">
+          <h3>Ingredients:</h3>
+          <ul>
+            <li>2 cups basmati rice</li>
+            <li>500g chicken</li>
+            <li>2 onions (fried)</li>
+            <li>2 tomatoes</li>
+            <li>Yogurt & spices (garam masala, turmeric, chili powder)</li>
+          </ul>
+          <p>Cook rice separately. Prepare chicken masala with spices, yogurt, and onions. Layer rice and chicken, steam for 15 minutes. Serve hot.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="toggleRecipe(1)">
+      <img src="https://i0.wp.com/binjalsvegkitchen.com/wp-content/uploads/2015/12/Masala-Dosa-H1-1.jpg?fit=600%2C900&ssl=1" alt="Masala Dosa">
+      <div class="card-content">
+        <h2>Masala Dosa</h2>
+        <div class="recipe" id="recipe1">
+          <h3>Ingredients:</h3>
+          <ul>
+            <li>2 cups dosa batter</li>
+            <li>3 potatoes (boiled)</li>
+            <li>1 onion</li>
+            <li>Green chili, curry leaves</li>
+            <li>Turmeric & mustard seeds</li>
+          </ul>
+          <p>Spread dosa batter on hot tawa, stuff with potato masala (spiced with turmeric, onion, and chili). Serve with chutney & sambar.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="toggleRecipe(2)">
+      <img src="https://t3.ftcdn.net/jpg/06/01/41/68/360_F_601416862_AfYdeefqT1kGqWTx1DZCsJZVzYIDFzPR.jpg" alt="Butter Chicken">
+      <div class="card-content">
+        <h2>Butter Chicken</h2>
+        <div class="recipe" id="recipe2">
+          <h3>Ingredients:</h3>
+          <ul>
+            <li>500g chicken</li>
+            <li>1 cup tomato puree</li>
+            <li>½ cup cream</li>
+            <li>2 tbsp butter</li>
+            <li>Spices (garam masala, chili powder, ginger-garlic paste)</li>
+          </ul>
+          <p>Cook marinated chicken in butter. Add tomato puree, cream, and spices. Simmer until thick and creamy. Best served with naan or rice.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="toggleRecipe(3)">
+      <img src="https://www.indianhealthyrecipes.com/wp-content/uploads/2023/07/paneer-butter-masala-recipe.jpg" alt="Paneer Butter Masala">
+      <div class="card-content">
+        <h2>Paneer Butter Masala</h2>
+        <div class="recipe" id="recipe3">
+          <h3>Ingredients:</h3>
+          <ul>
+            <li>250g paneer (cubes)</li>
+            <li>2 onions</li>
+            <li>1 cup tomato puree</li>
+            <li>½ cup cream</li>
+            <li>Spices (coriander, chili powder, garam masala)</li>
+          </ul>
+          <p>Sauté onion & tomato. Blend into smooth paste. Add paneer, cream, and spices. Cook until gravy thickens. Serve with roti or rice.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleRecipe(index) {
+      const recipe = document.getElementById(recipe$,{index});
+      const isVisible = recipe.style.display === 'block';
+      document.querySelectorAll('.recipe').forEach(r => r.style.display = 'none');
+      recipe.style.display = isVisible ? 'none' : 'block';
+    }
+  </script>
+
+</body>
+</html>
